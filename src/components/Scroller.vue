@@ -424,19 +424,11 @@
       },
 
       touchStart(e) {
-        // Don't react if initial down happens on a form element
-        if (e.target.tagName.match(/input|textarea|select/i)) {
-          return
-        }
         this.scroller.doTouchStart(e.touches, e.timeStamp)
       },
 
       touchMove(e) {
-        if (e.target.tagName.match(/input|textarea|select/i)) { 
-          return 
-        } else { 
-          e.preventDefault()
-        }
+        e.preventDefault()
         this.scroller.doTouchMove(e.touches, e.timeStamp)
       },
 
@@ -445,10 +437,6 @@
       },
 
       mouseDown(e) {
-        // Don't react if initial down happens on a form element
-        if (e.target.tagName.match(/input|textarea|select/i)) {
-          return
-        }
         this.scroller.doTouchStart([{
           pageX: e.pageX,
           pageY: e.pageY
